@@ -10,9 +10,9 @@ function writeCss(prefix, code, fn) {
     domCode.scrollTop = domCode.scrollHeight // 让代码自动往下滚，目前不是很理解
     if (n >= code.length) {
       window.clearInterval(id)
-      fn && fn.call()
+      fn && fn.call() // ？？？ 目前不懂
     }
-  }, 100)
+  }, 30)
 }
 function writeMarkdown(markdown, fn) {
   let domPaper = document.querySelector('#paper>.content')
@@ -26,7 +26,7 @@ function writeMarkdown(markdown, fn) {
       window.clearInterval(id)
       fn && fn.call()
     }
-  }, 100)
+  }, 10)
 }
 
 var css1 = `/* 
@@ -52,7 +52,7 @@ html{
 
 .token.comment{ color: slategray; }
 #code{
-  color: rgb(222,222,222); 
+  color: #3A5FCD; 
 }
 .token.selector { color: #a6e22e; }
 .token.property { color: #f92672; }
@@ -61,18 +61,20 @@ html{
 
 /* 现在看得清了吧，然后我再加一个3D效果 */
 
+#code-wrapper{
+  width: 50%; left: 0; position: fixed; 
+  height: 100%;
+}
+
 #code{
-  animation: slidein 2s linear 1s;
+  width: 100%;
+  height: 100%;
+  transform: perspective(1300px) rotateY(10deg);
 }
 
 /* 现在正式开始 */
 
 /* 我需要一张白纸 */
-
-#code-wrapper{
-  width: 50%; left: 0; position: fixed; 
-  height: 100%;
-}
 
 #paper > .content {
  display: block;

@@ -38,7 +38,7 @@
   width: 100%;
   /* overflow: auto; 如果溢出，则加滚动条 */
   /* overflow: hidden; 如果溢出，则隐藏溢出部分  */
-  overflow: hidden;
+  overflow: auto;
 }
 
 #paper {
@@ -70,11 +70,26 @@
   overflow: auto;
 }
 
-@keyframes slidein {
+/* @keyframes slidein {
   from {
     transform: scaleX(0);
   }
   to {
     transform: scaleX(1);
   }
+} */
+
+/* 滚动条 */
+
+::-webkit-scrollbar {
+  background-color: lightgray;
+  width: 10px;
+  height: 10px;
+  background-clip: padding-box;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #aaa;
+  border-radius: 5px;
 }
